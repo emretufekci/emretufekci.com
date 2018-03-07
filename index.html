@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>emretufekci.com</title>
+
+       <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+       <link href='style.css' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+   </head>
+
+   <body>
+<!--  Content  -->
+<article>
+  <h1 style="color:white">EMRE TUFEKCI <br/>
+  	<span>
+      
+
+       <br/>
+  Computer Engineer & Full Stack Developer<br>
+<a href="mailto:contact@emretufekci.com"><font color="FF00CC">contact@emretufekci.com</font></a>
+  </span></h1>
+  <div class="mute-button">
+<button onclick="enableMute();changeSymbol();" type="button" class="btn btn-warning btn-sm"><i id="mute">MUTE SOUND :(</i></button>
+</div>
+  <div class="vertical-menu">
+  
+<a href="http://www.linkedin.com/in/emre-tufekci" target="_blank"><i class="fab fa-linkedin" style="font-size:48px;color:blue;"></i><p style="color:black"><span style="color:black;font-size:12px">Linked-in</span> 
+</p></a>
+
+<a href="http://github.com/emretufekci" target="_blank"><i class="fab fa-github" style="font-size:36px;"></i><p style="color:black"><span style="color:black;font-size:12px">Github</span>
+</p></a>
+
+<a href="#"" target="_blank"><i class="far fa-address-book" style="font-size:36px;color:black;"></i><p style="color:black"><span style="color:black;font-size:12px">Resume</span>
+</p></a>
+
+
+<a href="#"" target="_blank"><i class="fa fa-users" style="font-size:36px;color:black;"></i><br><p style="color:red font-size:36px"><span style="color:blue;font-size:12px"><span style="color:black;font-size:12px">CS Clubs</span>
+</p></a>
+
+<a href="#"" target="_blank"><i class="fa fa-code" style="font-size:36px;color:black;"></i><br><p style="color:red font-size:36px"><span style="color:blue;font-size:12px"><span style="color:black;font-size:12px">Projects</span>
+</p></a>
+
+<a href="#"" target="_blank"><i class="fa fa-gamepad" style="font-size:36px;color:black;"></i><br><p style="color:red font-size:36px"><span style="color:blue;font-size:12px"><span style="color:black;font-size:12px">Games</span>
+</p></a>
+
+<a href="#"" target="_blank"><i class="fa fa-bold" style="font-size:36px;color:navy;"></i><br><p style="color:red font-size:36px"><span style="color:blue;font-size:12px"><span style="color:black;font-size:12px">Blog</span>
+</p></a>
+
+</div>
+</article>
+  
+<!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+<video    autoplay loop id="video-background"  plays-inline  >
+  <source src="istanbul.mp4" type="video/mp4">
+</video>
+
+
+   </body>
+
+
+
+<script>
+var vid = document.getElementById("video-background");
+vid.muted=false;
+
+function enableMute() { 
+      
+  if(vid.muted==false){
+    vid.muted = true;
+document.getElementById("mute").innerHTML = 'UNMUTE SOUND :)';
+
+      }
+    else if(vid.muted==true){
+      vid.muted = false;
+document.getElementById("mute").innerHTML = "MUTE SOUND :(";
+
+
+    }
+}
+
+
+</script>
+</html>
+
+

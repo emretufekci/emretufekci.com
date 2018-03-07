@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+/*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+  background: #ffa500;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* The only rule that matters */
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+/* These just style the content */
+article {
+/*  just a fancy border  */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  margin: 10px;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 60px;
+  letter-spacing: 3px;
+  color:  #ffe6e6;
+  font-family: Oswald, sans-serif;
+  text-align: center;
+}
+
+
+
+h1 span {
+  font-family: sans-serif;
+  letter-spacing: 0;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 24px;
+} 
+
+h1 span a {
+  color:  #ffe6e6;
+
+}
+.mute-button{
+  float:right;
+ 
+}
+.vertical-menu {
+    width: 90px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+    background-color: white; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    opacity:0.6;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+        opacity:0.5;
+
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+        opacity:0.5;
+
+}
