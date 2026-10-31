@@ -1,0 +1,16 @@
+<ul class="postlist">
+  {%- for post in postlist %}
+  <li>
+    <a href="{{ post.url }}">
+      <span class="meta">
+        <span class="cat cat-{{ post.data.category }}">{{ categories[post.data.category] }}</span>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        {% if post.data.video %}<span class="badge">▶ Video</span>{% endif %}
+        {% if post.data.draft %}<span class="badge">Draft</span>{% endif %}
+      </span>
+      <span class="pl-title">{{ post.data.title }}</span>
+      {% if post.data.description %}<span class="pl-desc">{{ post.data.description }}</span>{% endif %}
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

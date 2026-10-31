@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Upload to server
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOST: ${{ vars.DEPLOY_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          # The key is pinned server-side to `rrsync -wo /var/www/emretufekci.com`,
+          # so the remote path is relative to the web root.
+          rsync -rlz --checksum --delete --delay-updates --chmod=D755,F644 \
+            -e "ssh -i ~/.ssh/deploy -o IdentitiesOnly=yes" \
+            _site/ "deploy@$HOST:./"
+
+      - name: Smoke test
+        run: curl -fsS -o /dev/null -w "%{http_code} %{url_effective}\n" https://emretufekci.com/

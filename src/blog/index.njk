@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: Writing on real-time communication, engineering, building startups, and life in between.
+---
+<section class="wrap">
+  <h1 class="page-title">Blog</h1>
+  <p class="section-intro">{{ description }}</p>
+  {% include "blognav.njk" %}
+  {% set postlist = collections.posts %}{% include "postlist.njk" %}
+</section>

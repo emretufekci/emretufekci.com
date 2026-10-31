@@ -1,0 +1,15 @@
+{
+  "name": "emretufekci.com",
+  "private": true,
+  "description": "Personal site and blog of Emre Tüfekçi",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy-plugin-rss": "^2.0.4"
+  }
+}

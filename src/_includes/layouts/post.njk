@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+{%- set postUrl = page.url | absolute -%}
+<article class="wrap post">
+  <header class="post-head">
+    <p class="meta">
+      <a class="cat cat-{{ category }}" href="/blog/{{ category }}/">{{ categories[category] }}</a>
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      <span>· {{ content | readingTime }}</span>
+    </p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="lede">{{ description }}</p>{% endif %}
+  </header>
+
+  {% if video %}
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ video | youtubeId }}" title="{{ title }}"
+      loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  {% endif %}
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  <footer class="share">
+    <span>Share</span>
+    <a href="https://x.com/intent/post?url={{ postUrl | encode }}&text={{ title | encode }}" rel="noopener" target="_blank">X</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ postUrl | encode }}" rel="noopener" target="_blank">LinkedIn</a>
+    <a href="https://news.ycombinator.com/submitlink?u={{ postUrl | encode }}&t={{ title | encode }}" rel="noopener" target="_blank">HN</a>
+    <button type="button" class="copy-link" data-url="{{ postUrl }}">Copy link</button>
+    <button type="button" class="native-share" data-url="{{ postUrl }}" data-title="{{ title }}" hidden>Share…</button>
+  </footer>
+
+  <nav class="post-nav">
+    {%- set prev = collections.posts | getPreviousCollectionItem -%}
+    {%- set next = collections.posts | getNextCollectionItem -%}
+    {% if next %}<a href="{{ next.url }}">← {{ next.data.title }}</a>{% else %}<span></span>{% endif %}
+    {% if prev %}<a href="{{ prev.url }}">{{ prev.data.title }} →</a>{% endif %}
+  </nav>
+</article>

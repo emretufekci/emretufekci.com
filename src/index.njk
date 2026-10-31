@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+---
+<section class="wrap hero">
+  <div class="hero-text">
+    <p class="eyebrow">{{ site.title }} · {{ site.location }}</p>
+    <h1>I build real-time communication systems, and lately I teach them to talk back.</h1>
+    <p class="lede">
+      Seven years of C++, SIP and low-latency media: secure communication platforms in the defense industry,
+      and now cloud telephony and voice AI at <strong>SignalWire</strong>. Outside work I keep shipping products
+      with co-founders and writing about what I learn.
+    </p>
+    <p class="cta">
+      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="/blog/">Read the blog</a>
+    </p>
+  </div>
+  <img class="portrait" src="/assets/img/emre.jpg" width="448" height="560" alt="Portrait of Emre Tüfekçi">
+</section>
+
+<section class="wrap" id="work">
+  <h2 class="section-title">Experience</h2>
+  <ol class="timeline">
+    {% for job in cv.experience %}
+    <li>
+      <div class="when">{{ job.when }}</div>
+      <div>
+        <h3>{{ job.role }} <span class="at">· {{ job.org }}</span></h3>
+        <p>{{ job.summary }}</p>
+        {% if job.tags %}<ul class="tags">{% for t in job.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title">Open source</h2>
+  <div class="cards">
+    {% for p in cv.openSource %}
+    <a class="card" href="{{ p.url }}">
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.summary }}</p>
+      <span class="card-foot">{{ p.stack }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title">Founder log</h2>
+  <p class="section-intro">
+    Since 2017 I've been building products on the side, mostly as the technical co-founder.
+    Few of them survived. All of them taught me something, and I write those lessons up on the
+    <a href="/blog/startup/">blog</a>.
+  </p>
+  <ol class="ventures">
+    {% for v in cv.ventures %}
+    <li>
+      <span class="year">{{ v.year }}</span>
+      <div>
+        <h3>{{ v.name }}{% if v.status %} <span class="status status-{{ v.status | slugify }}">{{ v.status }}</span>{% endif %}</h3>
+        <p>{{ v.summary }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap two-col">
+  <div>
+    <h2 class="section-title">Education</h2>
+    <ul class="plain">
+      {% for e in cv.education %}
+      <li><h3>{{ e.degree }}</h3><p>{{ e.school }} · {{ e.when }}</p>{% if e.note %}<p class="muted">{{ e.note }}</p>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2 class="section-title">Toolbox</h2>
+    <dl class="skills">
+      {% for s in cv.skills %}<dt>{{ s.area }}</dt><dd>{{ s.items }}</dd>{% endfor %}
+    </dl>
+  </div>
+</section>
+
+{% set latest = collections.posts | head(3) %}
+{% if latest.length %}
+<section class="wrap">
+  <h2 class="section-title">Latest writing</h2>
+  {% set postlist = latest %}{% include "postlist.njk" %}
+  <p><a class="more" href="/blog/">All posts →</a></p>
+</section>
+{% endif %}
+
+<section class="wrap contact" id="contact">
+  <h2>Let's talk.</h2>
+  <p>RTC, voice AI, early-stage products, or a good problem I might help with. My inbox is open.</p>
+  <p class="cta">
+    <a class="btn" href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <a class="btn ghost" href="{{ site.linkedin }}">LinkedIn</a>
+    <a class="btn ghost" href="{{ site.github }}">GitHub</a>
+  </p>
+</section>

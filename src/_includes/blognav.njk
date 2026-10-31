@@ -1,0 +1,7 @@
+<nav class="chips" aria-label="Categories">
+  <a href="/blog/"{% if not activeCat %} aria-current="page"{% endif %}>All</a>
+  {%- for key, label in categories %}
+  <a href="/blog/{{ key }}/"{% if activeCat == key %} aria-current="page"{% endif %}>{{ label }}</a>
+  {%- endfor %}
+  <a href="/feed.xml" class="rss">RSS</a>
+</nav>

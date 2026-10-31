@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: categories
+  size: 1
+  alias: activeCat
+permalink: "/blog/{{ activeCat }}/"
+eleventyComputed:
+  title: "{{ categories[activeCat] }} — Blog"
+---
+<section class="wrap">
+  <h1 class="page-title">{{ categories[activeCat] }}</h1>
+  {% include "blognav.njk" %}
+  {% set postlist = collections.posts | byCategory(activeCat) %}
+  {% if postlist.length %}{% include "postlist.njk" %}{% else %}<p class="muted">Nothing here yet. Soon.</p>{% endif %}
+</section>
