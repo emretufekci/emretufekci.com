@@ -9,4 +9,6 @@ export default {
   github: "https://github.com/emretufekci",
   linkedin: "https://www.linkedin.com/in/emre-tufekci",
   repo: "https://github.com/emretufekci/emretufekci.com",
+  // Keep false until the site is approved for publishing: adds noindex and disallows crawlers.
+  indexable: false,
 };

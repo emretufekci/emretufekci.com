@@ -74,16 +74,11 @@ nav a:hover, nav a[aria-current="page"] { color: var(--text); }
 .theme-toggle:hover { color: var(--text); }
 
 /* Hero */
-.hero { display: grid; gap: 2rem; align-items: center; margin-top: 2.5rem !important; }
-@media (min-width: 760px) { .hero { grid-template-columns: 1fr 260px; gap: 3.5rem; margin-top: 5rem !important; } }
+.hero { max-width: 760px; margin-top: 3rem !important; }
+@media (min-width: 760px) { .hero { margin-top: 5.5rem !important; } }
 .eyebrow { color: var(--accent); font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: .75rem; }
 .hero h1 { font-size: clamp(1.9rem, 5.2vw, 3rem); margin: 0 0 1.25rem; }
 .lede { font-size: 1.1rem; color: var(--muted); }
-.portrait {
-  width: 180px; border-radius: 18px; order: -1; filter: saturate(.9);
-  box-shadow: 0 20px 50px -25px rgba(0,0,0,.45);
-}
-@media (min-width: 760px) { .portrait { width: 100%; order: 0; } }
 .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
 .btn {
   display: inline-block; padding: .65rem 1.15rem; border-radius: 999px; text-decoration: none;

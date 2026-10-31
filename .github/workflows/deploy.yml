@@ -1,8 +1,9 @@
 name: Deploy
 
+# Manual only until the site is approved. To auto-deploy on push, add back:
+#   push:
+#     branches: [master]
 on:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 concurrency:

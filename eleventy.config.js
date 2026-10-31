@@ -10,7 +10,6 @@ export const CATEGORIES = {
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
 
   // Drafts render with `npm start` but never reach the production build.
   eleventyConfig.addPreprocessor("drafts", "md", (data) => {
