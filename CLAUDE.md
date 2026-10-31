@@ -36,7 +36,7 @@ When working on the server:
 ## Writing style for posts
 
 Emre's voice: direct, first person, practical, honest about failures, no hype.
-Posts about startups or personal life stay `draft: true` until Emre approves them.
+Posts about startups or personal life go in `drafts/` (git-ignored; the repo is public) until Emre approves them.
 Don't publish private details (finances, health, family, employer-confidential work).
 
 ## Commits

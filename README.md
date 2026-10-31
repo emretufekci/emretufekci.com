@@ -34,6 +34,10 @@ Markdown here.
 
 The URL becomes `/blog/some-slug/`. Commit and push, and it's live in about a minute.
 
+**Private drafts:** this repo is public, so a `draft: true` file in `src/posts/` is readable on
+GitHub even though it never reaches the site. Keep unreviewed drafts in `drafts/` (git-ignored, local only)
+and move them into `src/posts/` when they're ready.
+
 Images go in `src/assets/img/posts/`.
 
 ## Cross-posting (Medium, Substack, LinkedIn)
